@@ -44,7 +44,7 @@ trainX<- scale(train[, -1]) # We do not standardize the first column, our respon
 trainX
 # We normalize test data using mean and standard deviation of train dataset that is stored in attr.
 testX<- scale(test[, -1], center = attr(trainX, "scaled:center"), scale =  attr(trainX, "scaled:scale"))
-# We store the dependentvariable as a facror variable.
+# We store the dependent variable as a factor variable.
 trainY <- factor(train[, 1])
 Y <- factor(test[, 1])
 test[,1] <- 0  #Make all values for dependent variable be zero.
