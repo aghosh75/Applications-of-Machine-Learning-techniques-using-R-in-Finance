@@ -44,8 +44,8 @@ print(distance, digits = 3)
 
 #Cluster dendogram with complete linkage
 #We will do hierachial clustering here.
-#Initally each country is treated as a single cluster and then we find whoch countries are the closest distance.
-#Finally, all the countries are formed into on elarge cluster.
+#Initally each country is treated as a single cluster and then we find which countries are the closest distance.
+#Finally, all the countries are formed into a larger cluster.
 hc.c <- hclust(distance)   #h denotes hierchial cluster
 plot(hc.c)
 plot(hc.c, labels =ClusterAnalysis$Countries)
@@ -63,7 +63,7 @@ table(member.c, member.a)
 
 #Cluster means
 aggregate(z, list(member.c), mean) #clustering in standardized form. Gives which variables are important for countries in a certain cluster.
-aggregate(ClusterAnalysis[,-c(1,1)],list(member.c),mean)  #Doing clustering of the riginal variables.
+aggregate(ClusterAnalysis[,-c(1,1)],list(member.c),mean)  #Doing clustering of the original variables.
 
 #Silhouette Plot
 library(cluster)
@@ -83,4 +83,4 @@ kc <- kmeans(z, 3)
 kc
 kc$cluster
 kc$centers
-plot(GDPpercapita~TradeOpenness,ClusterAnalysis, col = kc$cluster)
+plot(GDPpercapitagrowth~TradeOpenness,ClusterAnalysis, col = kc$cluster)
